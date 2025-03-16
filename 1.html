@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <title>Weather Forecast App</title>
+  </head>
+  <link rel="stylesheet" href="1.css" />
+  <body id="body">
+    <img id="background" width="450" height="450" />
+    <div class="main-wrapper">
+      <div class="search-wrapper">
+        <input type="text" placeholder="search..." id="search" />
+        <button type="button" name="button" id="button">
+          <img id="search-icon" src="https://dl.dropbox.com/s/z95oogqn6mrcvo4/search.png" alt="search">
+        </button>
+      </div>
+      <div class="info-container">
+        <div class="top-wrapper">
+          <p id="city"></p>
+        </div>
+        <div class="middle-container">
+          <p id="lon"></p>
+          <p id="lat"></p>
+          <p id="pressure"></p>
+          <p id="humidity"></p>
+          <div class="main-info">
+            <p id="tempNow"></p>
+            <p id="main"></p>
+            <p id="description"></p>
+          </div>
+          <p id="min-temp"></p>
+          <p id="feels-like"></p>
+          <p id="max-temp"></p>
+          <div class="bottom-info">
+            <p id="sunrise-info"></p>
+            <p id="clouds-info"></p>
+            <p id="sunset-info"></p>
+          </div>
+        </div>
+        <div class="bottom-wrapper">
+          <div class="wind-info">
+            <p id="wind-speed"></p>
+            <p id="wind-gust"></p>
+            <p id="wind-direction-deg"></p>
+          </div>
+          <p id="visibility"></p>
+        </div>
+      </div>
+    </div>
+    <script src="1.js"></script>
+  </body>
+</html>

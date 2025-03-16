@@ -1,0 +1,853 @@
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap");
+
+* {
+  font-family: "Quicksand", sans-serif;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  position: fixed;
+  color: #ffffff;
+  background: black;
+}
+
+body {
+  letter-spacing: 0.5px;
+}
+
+.search-wrapper {
+  position: absolute;
+  display: block;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 35px;
+  white-space: nowrap;
+}
+
+#search {
+  position: absolute;
+  top: 5px;
+  width: calc(100% - 65px);
+  height: 20px;
+  padding: 3px 1px;
+  left: 10px;
+  background: transparent;
+  color: #dad2d2;
+  border: 2px solid gray;
+  border-top-color: transparent;
+  border-left-color: transparent;
+  border-right-color: transparent;
+  font-size: 14px;
+  text-shadow: 2px 2px 1px black;
+}
+
+#search::placeholder {
+  color: #9f9f9f;
+}
+
+#search:focus,
+#button:focus {
+  outline: none;
+}
+
+#button {
+  position: absolute;
+  width: auto;
+  height: auto;
+  font-size: 20px;
+  padding: 0;
+  margin: 0;
+  top: 7px;
+  left: calc(100% - 35px);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+#search-icon {
+  width: 32px;
+}
+
+.main-wrapper {
+  position: relative;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  max-width: 900px;
+  margin: 0 auto;
+  text-shadow: 2px 2px 1px black;
+}
+
+#background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  filter: brightness(0.5) blur(4px);
+  object-fit: cover;
+}
+
+#weather-icon {
+  position: relative;
+  top: 2.5px;
+  left: 0;
+  width: 33px;
+}
+
+.info-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: auto;
+  border-top: 1px solid gray;
+}
+
+.top-wrapper {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  border-bottom: 1px solid gray;
+}
+
+p {
+  white-space: nowrap;
+}
+
+#city {
+  position: relative;
+  margin: auto;
+  height: auto;
+  width: 100%;
+  text-align: center;
+  font-size: 36px;
+  padding: 2px 0;
+}
+
+.middle-container {
+  position: relative;
+  left: 0;
+  width: 100%;
+  height: auto;
+  white-space: nowrap;
+}
+
+#lon,
+#lat,
+#pressure,
+#humidity {
+  position: relative;
+  display: inline-block;
+  margin: 0 1px;
+  top: -2px;
+  left: 0;
+  width: calc(25% - 4px);
+  height: auto;
+  text-align: center;
+  padding-top: 8px;
+  font-size: 18px;
+}
+
+#tempNow {
+  position: relative;
+  margin: 0 auto;
+  width: 40%;
+  height: auto;
+  font-size: 48px;
+  text-align: center;
+}
+
+#main {
+  position: relative;
+  margin: 0 auto;
+  width: 50%;
+  height: auto;
+  font-size: 32px;
+  text-align: center;
+}
+
+#description {
+  position: relative;
+  margin: 0 auto;
+  width: 50%;
+  height: auto;
+  font-size: 18px;
+  text-align: center;
+}
+
+#min-temp,
+#feels-like,
+#max-temp {
+  position: relative;
+  display: inline-block;
+  width: 33%;
+  margin: 5px 0 0 0;
+  height: auto;
+  padding: 5px 0;
+  font-size: 28px;
+  left: 0;
+  text-align: center;
+}
+
+#min-temp,
+#feels-like {
+  border-top: 1px solid gray;
+  border-right: 1px solid gray;
+}
+
+#max-temp {
+  border-top: 1px solid gray;
+}
+
+.bottom-info {
+  position: relative;
+  margin: 0;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  border-top: 1px solid gray;
+}
+
+#sunrise-info,
+#clouds-info,
+#sunset-info {
+  position: relative;
+  display: inline-block;
+  width: 33%;
+  text-align: center;
+  padding: 5px 0;
+  height: auto;
+  margin: 0;
+  vertical-align: middle;
+}
+
+#sunrise-info {
+  font-size: 16px;
+}
+
+#clouds-info {
+  font-size: 18px;
+}
+
+#sunset-info {
+  font-size: 16px;
+}
+
+#city,
+#tempNow,
+#main {
+  font-weight: 600;
+}
+
+.bottom-wrapper {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  white-space: nowrap;
+}
+
+.wind-info {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  border-bottom: 1px solid gray;
+}
+
+#wind-speed,
+#wind-gust,
+#wind-direction-deg {
+  position: relative;
+  display: inline-block;
+  top: 0;
+  left: 0;
+  margin: 0;
+  width: 33%;
+  height: auto;
+  padding: 5px 0;
+  border-top: 1px solid gray;
+  font-size: 28px;
+  text-align: center;
+}
+
+#wind-speed,
+#wind-gust {
+  border-right: 1px solid gray;
+}
+
+#visibility {
+  position: relative;
+  display: block;
+  margin: 0;
+  width: 100%;
+  height: auto;
+  padding: 4px 0;
+  text-align: center;
+  font-size: 18px;
+}
+
+span {
+  background: red;
+}
+
+@media screen and (max-width: 768px) {
+  #city {
+    font-size: 32px;
+  }
+  #lon,
+  #lat,
+  #pressure,
+  #humidity {
+    font-size: 14px;
+  }
+  #tempNow {
+    font-size: 42px;
+  }
+  #main {
+    font-size: 28px;
+  }
+  #min-temp,
+  #feels-like,
+  #max-temp,
+  #wind-speed,
+  #wind-gust,
+  #wind-direction-deg {
+    font-size: 24px;
+  }
+  #sunrise-info,
+  #sunset-info,
+  #description {
+    font-size: 14px;
+  }
+  #clouds-info,
+  #description,
+  #visibility {
+    font-size: 16px;
+  }
+  #weather-icon {
+    width: 28px;
+    top: 2.1px;
+  }
+}
+
+@media screen and (max-width: 570px) {
+  #city {
+    font-size: 28px;
+  }
+  #lon,
+  #lat,
+  #pressure,
+  #humidity {
+    font-size: 11px;
+  }
+  #tempNow {
+    font-size: 36px;
+  }
+  #main {
+    font-size: 24px;
+  }
+  #min-temp,
+  #feels-like,
+  #max-temp,
+  #wind-speed,
+  #wind-gust,
+  #wind-direction-deg {
+    font-size: 18px;
+  }
+  #sunrise-info,
+  #sunset-info,
+  #description {
+    font-size: 12px;
+  }
+  #clouds-info,
+  #description,
+  #visibility {
+    font-size: 14px;
+  }
+  #weather-icon {
+    width: 25px;
+    top: 1.7px;
+  }
+  #button {
+    font-size: 18px;
+    top: 8px;
+  }
+  #search {
+    font-size: 12px;
+    padding: 2px 1px;
+    border: 1px solid gray;
+    border-top-color: transparent;
+    border-left-color: transparent;
+    border-right-color: transparent;
+  }
+  #search-icon {
+    width: 24px;
+  }
+}
+
+@media screen and (max-width: 470px) {
+  #city {
+    font-size: 24px;
+  }
+  #lon,
+  #lat,
+  #pressure,
+  #humidity {
+    font-size: 10px;
+  }
+  #tempNow {
+    font-size: 30px;
+  }
+  #main {
+    font-size: 20px;
+  }
+  #min-temp,
+  #feels-like,
+  #max-temp,
+  #wind-speed,
+  #wind-gust,
+  #wind-direction-deg {
+    font-size: 16px;
+  }
+  #sunrise-info,
+  #sunset-info,
+  #description {
+    font-size: 10px;
+  }
+  #clouds-info,
+  #description,
+  #visibility {
+    font-size: 12px;
+  }
+  #weather-icon {
+    width: 21px;
+    top: 1.5px;
+  }
+}
+
+@media screen and (max-width: 390px) {
+  #city {
+    font-size: 20px;
+  }
+  #lon,
+  #lat,
+  #pressure,
+  #humidity {
+    font-size: 8px;
+    top: -3px;
+    padding-top: 7px;
+  }
+  #tempNow {
+    font-size: 26px;
+  }
+  #main {
+    font-size: 18px;
+  }
+  #min-temp,
+  #feels-like,
+  #max-temp,
+  #wind-speed,
+  #wind-gust,
+  #wind-direction-deg {
+    font-size: 12px;
+  }
+  #sunrise-info,
+  #sunset-info,
+  #description {
+    font-size: 8px;
+  }
+  #clouds-info,
+  #description,
+  #visibility {
+    font-size: 10px;
+  }
+  #weather-icon {
+    width: 18px;
+    top: 1.3px;
+  }
+  #button {
+    font-size: 16px;
+    top: 9px;
+  }
+  #search {
+    font-size: 11px;
+    padding: 1px;
+  }
+  #search-icon {
+    width: 20px;
+  }
+}
+
+@media screen and (max-width: 310px) {
+  #city {
+    font-size: 16px;
+  }
+  #lon,
+  #lat,
+  #pressure,
+  #humidity {
+    font-size: 7px;
+    top: -4px;
+    padding-top: 6px;
+  }
+  #tempNow {
+    font-size: 20px;
+  }
+  #main {
+    font-size: 14px;
+  }
+  #min-temp,
+  #feels-like,
+  #max-temp,
+  #wind-speed,
+  #wind-gust,
+  #wind-direction-deg {
+    font-size: 10px;
+  }
+  #sunrise-info,
+  #sunset-info,
+  #description {
+    font-size: 6px;
+    padding: 0;
+  }
+  #clouds-info,
+  #description,
+  #visibility {
+    font-size: 8px;
+  }
+  #weather-icon {
+    width: 14px;
+    top: 1.2px;
+  }
+}
+
+@media screen and (max-width: 270px) {
+  #city {
+    font-size: 12px;
+  }
+  #lon,
+  #lat,
+  #pressure,
+  #humidity {
+    font-size: 5px;
+    top: -5px;
+    padding-top: 5px;
+  }
+  #tempNow {
+    font-size: 16px;
+  }
+  #main {
+    font-size: 11px;
+  }
+  #min-temp,
+  #feels-like,
+  #max-temp,
+  #wind-speed,
+  #wind-gust,
+  #wind-direction-deg {
+    font-size: 7px;
+  }
+  #sunrise-info,
+  #sunset-info,
+  #description {
+    font-size: 5px;
+  }
+  #clouds-info,
+  #description,
+  #visibility {
+    font-size: 7px;
+  }
+  #weather-icon {
+    width: 11px;
+    top: 1.1px;
+  }
+}
+
+@media screen and (max-height: 650px) and (min-width: 571px) {
+  #city {
+    font-size: 28px;
+  }
+  #lon,
+  #lat,
+  #pressure,
+  #humidity {
+    font-size: 11px;
+  }
+  #tempNow {
+    font-size: 36px;
+  }
+  #main {
+    font-size: 24px;
+  }
+  #min-temp,
+  #feels-like,
+  #max-temp,
+  #wind-speed,
+  #wind-gust,
+  #wind-direction-deg {
+    font-size: 18px;
+  }
+  #sunrise-info,
+  #sunset-info,
+  #description {
+    font-size: 12px;
+  }
+  #clouds-info,
+  #description,
+  #visibility {
+    font-size: 14px;
+  }
+  #weather-icon {
+    width: 25px;
+    top: 1.7px;
+  }
+  #button {
+    font-size: 18px;
+    top: 8px;
+  }
+  #search {
+    font-size: 12px;
+    padding: 2px 1px;
+    border: 1px solid gray;
+    border-top-color: transparent;
+    border-left-color: transparent;
+    border-right-color: transparent;
+  }
+  #search-icon {
+    width: 24px;
+  }
+}
+
+@media screen and (max-height: 525px) and (min-width: 471px) {
+  #city {
+    font-size: 24px;
+  }
+  #lon,
+  #lat,
+  #pressure,
+  #humidity {
+    font-size: 10px;
+  }
+  #tempNow {
+    font-size: 30px;
+  }
+  #main {
+    font-size: 20px;
+  }
+  #min-temp,
+  #feels-like,
+  #max-temp,
+  #wind-speed,
+  #wind-gust,
+  #wind-direction-deg {
+    font-size: 16px;
+  }
+  #sunrise-info,
+  #sunset-info,
+  #description {
+    font-size: 10px;
+  }
+  #clouds-info,
+  #description,
+  #visibility {
+    font-size: 12px;
+  }
+  #weather-icon {
+    width: 21px;
+    top: 1.5px;
+  }
+}
+
+@media screen and (max-height: 430px) and (min-width: 391px) {
+  #city {
+    font-size: 20px;
+  }
+  #lon,
+  #lat,
+  #pressure,
+  #humidity {
+    font-size: 8px;
+    top: -3px;
+    padding-top: 7px;
+  }
+  #tempNow {
+    font-size: 26px;
+  }
+  #main {
+    font-size: 18px;
+  }
+  #min-temp,
+  #feels-like,
+  #max-temp,
+  #wind-speed,
+  #wind-gust,
+  #wind-direction-deg {
+    font-size: 12px;
+  }
+  #sunrise-info,
+  #sunset-info,
+  #description {
+    font-size: 8px;
+  }
+  #clouds-info,
+  #description,
+  #visibility {
+    font-size: 10px;
+  }
+  #weather-icon {
+    width: 18px;
+    top: 1.3px;
+  }
+  #button {
+    font-size: 16px;
+    top: 9px;
+  }
+  #search {
+    font-size: 11px;
+    padding: 1px;
+  }
+  #search-icon {
+    width: 20px;
+  }
+}
+
+@media screen and (max-height: 375px) and (min-width: 311px) {
+  #city {
+    font-size: 16px;
+  }
+  #lon,
+  #lat,
+  #pressure,
+  #humidity {
+    font-size: 7px;
+    top: -4px;
+    padding-top: 6px;
+  }
+  #tempNow {
+    font-size: 20px;
+  }
+  #main {
+    font-size: 14px;
+  }
+  #min-temp,
+  #feels-like,
+  #max-temp,
+  #wind-speed,
+  #wind-gust,
+  #wind-direction-deg {
+    font-size: 10px;
+  }
+  #sunrise-info,
+  #sunset-info,
+  #description {
+    font-size: 6px;
+    padding: 0;
+  }
+  #clouds-info,
+  #description,
+  #visibility {
+    font-size: 8px;
+  }
+  #weather-icon {
+    width: 14px;
+    top: 1.2px;
+  }
+}
+
+@media screen and (max-height: 320px) and (min-width: 271px) {
+  #city {
+    font-size: 12px;
+  }
+  #lon,
+  #lat,
+  #pressure,
+  #humidity {
+    font-size: 5px;
+    top: -5px;
+    padding-top: 5px;
+  }
+  #tempNow {
+    font-size: 16px;
+  }
+  #main {
+    font-size: 11px;
+  }
+  #min-temp,
+  #feels-like,
+  #max-temp,
+  #wind-speed,
+  #wind-gust,
+  #wind-direction-deg {
+    font-size: 7px;
+  }
+  #sunrise-info,
+  #sunset-info,
+  #description {
+    font-size: 5px;
+  }
+  #clouds-info,
+  #description,
+  #visibility {
+    font-size: 7px;
+  }
+  #weather-icon {
+    width: 11px;
+    top: 1.1px;
+  }
+}
+
+@media screen and (max-height: 275px) {
+  #city {
+    font-size: 10px;
+  }
+  #lon,
+  #lat,
+  #pressure,
+  #humidity {
+    font-size: 4px;
+  }
+  #tempNow {
+    font-size: 14px;
+  }
+  #main {
+    font-size: 9px;
+  }
+  #min-temp,
+  #feels-like,
+  #max-temp,
+  #wind-speed,
+  #wind-gust,
+  #wind-direction-deg {
+    font-size: 5px;
+  }
+  #sunrise-info,
+  #sunset-info,
+  #description {
+    font-size: 3px;
+  }
+  #clouds-info,
+  #description,
+  #visibility {
+    font-size: 5px;
+  }
+  #weather-icon {
+    width: 9px;
+    top: 0.5px;
+  }
+}
